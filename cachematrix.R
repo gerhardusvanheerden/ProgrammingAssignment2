@@ -60,11 +60,11 @@ cacheSolve <- function(my_obj_matrix, ...) {
     ## no values exists and get matrix to perform the calculations on 
     data <- my_obj_matrix$get_matrix() 
     
-    ##lappy
     ## compute the inverse on matrix 
-    matrix_inverse <- solve(data) 
+    ##matrix_inverse <- solve(data)
+    z <- list(a = data )
+    matrix_inverse <- lapply(z, solve, ...)
     
-    ##lappy
     ## over witer the matrix values (cache the matrix)
     my_obj_matrix$set_matrix_inverse(matrix_inverse)
     ##return the caching matrix
